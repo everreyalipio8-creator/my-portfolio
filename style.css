@@ -1,4 +1,5 @@
 
+/* GENERAL SETTINGS */
 * {
     margin: 0;
     padding: 0;
@@ -7,71 +8,121 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #0f172a;
     color: #f1f5f9;
     line-height: 1.7;
     transition: background 0.3s, color 0.3s;
 }
 
+a {
+    color: inherit;
+}
+
+/* NAVIGATION BAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    gap: 20px;
+    padding: 18px 8%;
     background: #111c32;
     position: sticky;
     top: 0;
-    gap: 15px;
+    z-index: 100;
+    border-bottom: 1px solid #26364d;
 }
 
 .logo {
     color: #38bdf8;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .navbar ul {
     display: flex;
+    align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 22px;
 }
 
-.navbar a {
-    color: inherit;
+.navbar ul a {
     text-decoration: none;
+    transition: color 0.3s;
 }
 
-.navbar a:hover {
+.navbar ul a:hover {
     color: #38bdf8;
 }
 
-button {
-    padding: 8px 12px;
-    cursor: pointer;
-    border: none;
+#themeButton {
+    border: 1px solid #38bdf8;
+    background: transparent;
+    color: inherit;
     border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
+/* HOME SECTION */
 .hero {
-    min-height: 75vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 8%;
+    padding: 65px 8%;
+}
+
+/* PROFILE PHOTO BORDER */
+.profile-border {
+    width: 190px;
+    height: 190px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 3px solid #38bdf8;
+    box-shadow:
+        0 0 12px #38bdf8,
+        0 0 28px rgba(56, 189, 248, 0.45);
+    margin-bottom: 28px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-border:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 18px #38bdf8,
+        0 0 40px rgba(56, 189, 248, 0.6);
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
 }
 
 .greeting {
     color: #38bdf8;
+    font-size: 14px;
+    font-weight: bold;
     letter-spacing: 4px;
+    margin-bottom: 10px;
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin: 10px 0;
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 10px;
 }
 
 .hero h1 span {
@@ -79,37 +130,57 @@ button {
 }
 
 .hero h3 {
+    font-size: 22px;
     margin-bottom: 15px;
 }
 
-.hero p {
+.intro {
     max-width: 600px;
+    color: #cbd5e1;
 }
 
+/* BUTTONS */
 .btn {
     display: inline-block;
     margin-top: 25px;
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 12px 25px;
     background: #0284c7;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .btn:hover {
     background: #0369a1;
+    transform: translateY(-3px);
 }
 
+/* GENERAL CONTENT SECTIONS */
 .section {
-    padding: 70px 8%;
+    padding: 75px 8%;
     text-align: center;
 }
 
 .section h2 {
     color: #38bdf8;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 22px;
 }
 
+.section-description {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #cbd5e1;
+}
+
+.subheading {
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+/* SKILLS */
 .skills {
     display: flex;
     justify-content: center;
@@ -119,37 +190,57 @@ button {
 }
 
 .skills span {
-    padding: 8px 18px;
     background: #1e293b;
     border: 1px solid #38bdf8;
-    border-radius: 20px;
+    border-radius: 25px;
+    padding: 8px 18px;
+    transition: background 0.3s;
 }
 
+.skills span:hover {
+    background: #075985;
+}
+
+/* PROJECT CARDS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
+    margin-top: 25px;
 }
 
 .project-card {
-    padding: 25px;
     background: #1e293b;
-    border-radius: 12px;
     border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 28px 22px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
 }
 
 .project-card h3 {
     color: #38bdf8;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
+.project-card p {
+    color: #cbd5e1;
+}
+
+/* FOOTER */
 footer {
-    text-align: center;
-    padding: 25px;
     background: #111c32;
+    border-top: 1px solid #26364d;
+    text-align: center;
+    padding: 25px 15px;
+    color: #cbd5e1;
 }
 
-/* Light mode */
+/* LIGHT MODE */
 body.light-mode {
     background: #f8fafc;
     color: #1e293b;
@@ -158,6 +249,14 @@ body.light-mode {
 body.light-mode .navbar,
 body.light-mode footer {
     background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .intro,
+body.light-mode .section-description,
+body.light-mode .project-card p,
+body.light-mode footer {
+    color: #475569;
 }
 
 body.light-mode .project-card,
@@ -166,23 +265,55 @@ body.light-mode .skills span {
     border-color: #cbd5e1;
 }
 
+body.light-mode .project-card h3 {
+    color: #0369a1;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
 @media (max-width: 700px) {
     .navbar {
+        padding: 15px 5%;
         flex-wrap: wrap;
         justify-content: center;
     }
 
+    .logo {
+        font-size: 23px;
+    }
+
     .navbar ul {
-        justify-content: center;
+        gap: 14px;
         flex-wrap: wrap;
-        gap: 12px;
+        justify-content: center;
+    }
+
+    .navbar ul a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 50px 6%;
+    }
+
+    .profile-border {
+        width: 155px;
+        height: 155px;
+    }
+
+    .hero h3 {
+        font-size: 19px;
+    }
+
+    .section {
+        padding: 55px 6%;
+    }
+
+    .section h2 {
+        font-size: 28px;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
-    }
-
-    .hero {
-        min-height: 65vh;
     }
 }
